@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require('cors')
 const user = require("./routes/user"); //new addition
 const contact = require("./routes/contact"); //new addition
 const InitiateMongoServer = require("./config/db");
@@ -8,6 +9,8 @@ const InitiateMongoServer = require("./config/db");
 InitiateMongoServer();
 
 const app = express();
+
+app.use(cors())
 
 // PORT
 const PORT = process.env.PORT || 5000;
